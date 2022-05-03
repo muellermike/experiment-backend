@@ -7,6 +7,7 @@ from typing import List, Dict  # noqa: F401
 
 from swagger_server.models.base_model_ import Model
 from swagger_server import util
+from swagger_server.models.recording import Recording
 
 
 class User(Model):
@@ -15,20 +16,20 @@ class User(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, gender: object=None, age: object=None):  # noqa: E501
+    def __init__(self, id: int=None, gender: Recording=None, age: Recording=None):  # noqa: E501
         """User - a model defined in Swagger
 
         :param id: The id of this User.  # noqa: E501
         :type id: int
         :param gender: The gender of this User.  # noqa: E501
-        :type gender: object
+        :type gender: object (Recording)
         :param age: The age of this User.  # noqa: E501
-        :type age: object
+        :type age: object (Recording)
         """
         self.swagger_types = {
             'id': int,
-            'gender': object,
-            'age': object
+            'gender': Recording,
+            'age': Recording
         }
 
         self.attribute_map = {
@@ -76,7 +77,7 @@ class User(Model):
         self._id = id
 
     @property
-    def gender(self) -> object:
+    def gender(self) -> Recording:
         """Gets the gender of this User.
 
 
@@ -86,7 +87,7 @@ class User(Model):
         return self._gender
 
     @gender.setter
-    def gender(self, gender: object):
+    def gender(self, gender: Recording):
         """Sets the gender of this User.
 
 
@@ -97,7 +98,7 @@ class User(Model):
         self._gender = gender
 
     @property
-    def age(self) -> object:
+    def age(self) -> Recording:
         """Gets the age of this User.
 
 
@@ -107,7 +108,7 @@ class User(Model):
         return self._age
 
     @age.setter
-    def age(self, age: object):
+    def age(self, age: Recording):
         """Sets the age of this User.
 
 
