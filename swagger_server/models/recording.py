@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from __future__ import absolute_import
-from datetime import date, datetime  # noqa: F401
+from datetime import date, datetime
 
 from typing import List, Dict  # noqa: F401
 
@@ -15,19 +15,19 @@ class Recording(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, recording: object=None, time_to_recording: int=None):  # noqa: E501
+    def __init__(self, id: int=None, recording: str=None, time_to_recording: int=None):  # noqa: E501
         """Recording - a model defined in Swagger
 
         :param id: The id of this Recording.  # noqa: E501
         :type id: int
         :param recording: The recording of this Recording.  # noqa: E501
-        :type recording: object
+        :type recording: string
         :param time_to_recording: The time_to_recording of this Recording.  # noqa: E501
         :type time_to_recording: int
         """
         self.swagger_types = {
             'id': int,
-            'recording': object,
+            'recording': str,
             'time_to_recording': int
         }
 
@@ -74,22 +74,22 @@ class Recording(Model):
         self._id = id
 
     @property
-    def recording(self) -> object:
+    def recording(self) -> str:
         """Gets the recording of this Recording.
 
 
         :return: The recording of this Recording.
-        :rtype: object
+        :rtype: str
         """
         return self._recording
 
     @recording.setter
-    def recording(self, recording: object):
+    def recording(self, recording: str):
         """Sets the recording of this Recording.
 
 
         :param recording: The recording of this Recording.
-        :type recording: object
+        :type recording: str
         """
         if recording is None:
             raise ValueError("Invalid value for `recording`, must not be `None`")  # noqa: E501

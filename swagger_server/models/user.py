@@ -1,7 +1,6 @@
 # coding: utf-8
 
 from __future__ import absolute_import
-from datetime import date, datetime  # noqa: F401
 
 from typing import List, Dict  # noqa: F401
 
@@ -16,29 +15,32 @@ class User(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, gender: Recording=None, age: Recording=None):  # noqa: E501
+    def __init__(self, id: int=None, unique_id: int=None, gender: Recording=None, age: Recording=None):  # noqa: E501
         """User - a model defined in Swagger
 
         :param id: The id of this User.  # noqa: E501
         :type id: int
         :param gender: The gender of this User.  # noqa: E501
-        :type gender: object (Recording)
+        :type gender: string
         :param age: The age of this User.  # noqa: E501
-        :type age: object (Recording)
+        :type age: string
         """
         self.swagger_types = {
             'id': int,
+            'unique_id': int,
             'gender': Recording,
             'age': Recording
         }
 
         self.attribute_map = {
             'id': 'id',
+            'unique_id': 'uniqueId',
             'gender': 'gender',
             'age': 'age'
         }
 
         self._id = id
+        self._unique_id = unique_id
         self._gender = gender
         self._age = age
 
@@ -77,12 +79,33 @@ class User(Model):
         self._id = id
 
     @property
+    def unique_id(self) -> int:
+        """Gets the unique_id of this User.
+
+
+        :return: The unique_id of this User.
+        :rtype: int
+        """
+        return self._unique_id
+
+    @id.setter
+    def unique_id(self, unique_id: int):
+        """Sets the unique_id of this User.
+
+
+        :param id: The unique_id of this User.
+        :type unique_id: int
+        """
+
+        self._unique_id = unique_id
+
+    @property
     def gender(self) -> Recording:
         """Gets the gender of this User.
 
 
         :return: The gender of this User.
-        :rtype: object
+        :rtype: string
         """
         return self._gender
 
@@ -92,7 +115,7 @@ class User(Model):
 
 
         :param gender: The gender of this User.
-        :type gender: object
+        :type gender: string
         """
 
         self._gender = gender
@@ -103,7 +126,7 @@ class User(Model):
 
 
         :return: The age of this User.
-        :rtype: object
+        :rtype: string
         """
         return self._age
 

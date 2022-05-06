@@ -107,7 +107,7 @@ paths:
     put:
       tags:
       - "recordings"
-      summary: "Add a new recording to a experiment exercise"
+      summary: "Add a new recording to an experiment exercise"
       description: ""
       operationId: "add_recording"
       consumes:
@@ -145,11 +145,9 @@ definitions:
         type: "integer"
         format: "int64"
       gender:
-        type: "object"
-        properties: {}
+        $ref: "#/definitions/Recording"
       age:
-        type: "object"
-        properties: {}
+        $ref: "#/definitions/Recording"
     example:
       gender: "{}"
       id: 0
@@ -207,8 +205,8 @@ definitions:
         type: "integer"
         format: "int64"
       recording:
-        type: "object"
-        properties: {}
+        type: "string"
+        format: "string"
       timeToRecording:
         type: "integer"
         format: "int64"
