@@ -21,6 +21,10 @@ def execute(sql, params, statement):
             if statement == "SELECT":
                 cursor.execute(sql, params)
                 result = cursor.fetchall()
+            elif statement == "INSERT MANY":
+                cursor.executemany(sql, params)
+                print(f"INSERT MANY done")
+                conn.commit()
             else:
                 cursor.execute(sql, params)
                 result = conn.insert_id()

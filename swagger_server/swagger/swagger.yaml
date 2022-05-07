@@ -75,13 +75,13 @@ paths:
         "401":
           description: "API key is missing or invalid."
       x-swagger-router-controller: "swagger_server.controllers.experiments_controller"
-  /experiments/{experimentId}/exercises/next:
+  /experiments/{experimentId}/{userId}/exercises/next:
     get:
       tags:
       - "experiments"
       summary: "Get next exercise for this specific experiment of this user"
       description: ""
-      operationId: "get_exercise"
+      operationId: "get_next_exercise"
       consumes:
       - "application/json"
       produces:
@@ -90,6 +90,12 @@ paths:
       - name: "experimentId"
         in: "path"
         description: "Experiment ID to retrieve"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "userId"
+        in: "path"
+        description: "User ID to retrieve"
         required: true
         type: "integer"
         format: "int64"
@@ -208,6 +214,12 @@ definitions:
         type: "string"
         format: "string"
       timeToRecording:
+        type: "integer"
+        format: "int64"
+      experimentId:
+        type: "integer"
+        format: "int64"
+      userId:
         type: "integer"
         format: "int64"
     example:

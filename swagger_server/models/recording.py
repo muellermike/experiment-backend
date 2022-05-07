@@ -15,7 +15,7 @@ class Recording(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, recording: str=None, time_to_recording: int=None):  # noqa: E501
+    def __init__(self, id: int=None, recording: str=None, time_to_recording: int=None, experiment_id: int=None, user_id: int=None, exercise_id: int=None):  # noqa: E501
         """Recording - a model defined in Swagger
 
         :param id: The id of this Recording.  # noqa: E501
@@ -24,22 +24,37 @@ class Recording(Model):
         :type recording: string
         :param time_to_recording: The time_to_recording of this Recording.  # noqa: E501
         :type time_to_recording: int
+        :param experiment_id: The experiment_id of this Recording.  # noqa: E501
+        :type experiment_id: int
+        :param user_id: The user_id of this Recording.  # noqa: E501
+        :type user_id: int
+        :param exercise_id: The exercise_id of this Recording.  # noqa: E501
+        :type exercise_id: int
         """
         self.swagger_types = {
             'id': int,
             'recording': str,
-            'time_to_recording': int
+            'time_to_recording': int,
+            'experiment_id': int,
+            'user_id': int,
+            'exercise_id': int
         }
 
         self.attribute_map = {
             'id': 'id',
             'recording': 'recording',
-            'time_to_recording': 'timeToRecording'
+            'time_to_recording': 'timeToRecording',
+            'experiment_id': 'experimentId',
+            'user_id': 'userId',
+            'exercise_id': 'exerciseId'
         }
 
         self._id = id
         self._recording = recording
         self._time_to_recording = time_to_recording
+        self._experiment_id = experiment_id
+        self._user_id = user_id
+        self._exercise_id = exercise_id
 
     @classmethod
     def from_dict(cls, dikt) -> 'Recording':
@@ -116,3 +131,66 @@ class Recording(Model):
         """
 
         self._time_to_recording = time_to_recording
+
+    @property
+    def experiment_id(self) -> int:
+        """Gets the experiment_id of this Recording.
+
+
+        :return: The experiment_id of this Recording.
+        :rtype: int
+        """
+        return self._experiment_id
+
+    @experiment_id.setter
+    def experiment_id(self, experiment_id: int):
+        """Sets the experiment_id of this Recording.
+
+
+        :param experiment_id: The experiment_id of this Recording.
+        :type experiment_id: int
+        """
+
+        self._experiment_id = experiment_id
+
+    @property
+    def user_id(self) -> int:
+        """Gets the user_id of this Recording.
+
+
+        :return: The user_id of this Recording.
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id: int):
+        """Sets the user_id of this Recording.
+
+
+        :param user_id: The user_id of this Recording.
+        :type user_id: int
+        """
+
+        self._user_id = user_id
+
+    @property
+    def exercise_id(self) -> int:
+        """Gets the exercise_id of this Recording.
+
+
+        :return: The exercise_id of this Recording.
+        :rtype: int
+        """
+        return self._exercise_id
+
+    @exercise_id.setter
+    def exercise_id(self, exercise_id: int):
+        """Sets the exercise_id of this Recording.
+
+
+        :param exercise_id: The exercise_id of this Recording.
+        :type exercise_id: int
+        """
+
+        self._exercise_id = exercise_id

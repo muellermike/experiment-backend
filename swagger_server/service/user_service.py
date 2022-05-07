@@ -1,7 +1,7 @@
 from flask import current_app
 from swagger_server.datalayer.recording_datalayer import store_recording
 from swagger_server.models.user import User
-from swagger_server.datalayer.user_datalayer import store_user
+from swagger_server.datalayer.user_datalayer import get_user, store_user
 
 def add_user(user: User):
     """
@@ -19,3 +19,14 @@ def add_user(user: User):
     print("store user")
     result = store_user(user)
     return result
+
+def find_user_by_id(user_id: int):
+    """
+    Searches for a userId in the database to check if a user exists.
+    """
+
+    result = get_user(user_id)
+    if(len(result) == 1):
+        return True
+
+    return False

@@ -20,6 +20,7 @@ def main():
     app.app.config['DB_NAME'] = config['PROD']['DB_NAME']
     app.app.config['API_KEY'] = config['PROD']['API_KEY']
     app.app.config['API_VALUE'] = config['PROD']['API_VALUE']
+    app.app.config['NUMBER_OF_EXERCISES'] = config['PROD']['NUMBER_OF_EXERCISES']
     app.add_api('swagger.yaml', arguments={'title': 'NLP Experiment API'}, pythonic_params=True)
     app.run(port=8080)
 

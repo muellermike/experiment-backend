@@ -21,3 +21,15 @@ def store_user(user: User):
     inserted_user = execute(sql, (user.id, user.id, user.gender.id, user.age.id), "INSERT")
     
     return inserted_user
+
+def get_user(user_id: int):
+    """
+    Get the user by the id from the database
+    """
+
+    # SELECT Statement for the selection of a User.
+    sql = "SELECT PK, ID FROM User WHERE PK = %s"
+
+    user = execute(sql, (user_id), "SELECT")
+
+    return user
