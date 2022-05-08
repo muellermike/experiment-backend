@@ -7,10 +7,8 @@ def load_next_random_exercise(experimentId: int, userId: int):
     sql = "SELECT ex.PK, Question, Mimetype, EncodedString FROM Exercise as ex JOIN ExperimentExercise as ee ON ex.PK = ee.ExerciseFK JOIN Experiment as e ON ee.ExperimentFK = e.PK WHERE ee.ExperimentFK = %s AND e.UserFK = %s AND ee.RecordingFK IS NULL ORDER BY RAND() LIMIT 1"
     
     loaded_exercise = execute(sql, (experimentId, userId), "SELECT")
-    print(loaded_exercise)
-    print(str(type(loaded_exercise)))
+    
     if not loaded_exercise:
-        print("it is not")
         return None
 
     return loaded_exercise[0]

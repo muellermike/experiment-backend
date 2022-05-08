@@ -23,7 +23,6 @@ def add_user(body):  # noqa: E501
         body = User.from_dict(connexion.request.get_json())  # noqa: E501
 
     if is_valid(body):
-        print("all good")
         result = user_service.add_user(body)
     else:
         abort(400, "Please provide all required attributes.")

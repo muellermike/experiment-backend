@@ -17,10 +17,6 @@ def create_experiment(experiment: Experiment):
     lefties = get_exercises("left", current_app.config["NUMBER_OF_EXERCISES"])
     # load a number of exercises which have the correct answer right
     righties = get_exercises("right", current_app.config["NUMBER_OF_EXERCISES"])
-    
-    print("type of exercises: " + str(type(lefties)))
-    print("lefties: ")
-    print(lefties)
 
     # after both recordings have been stored, the user itself can be stored with the corresponding foreign keys.
     result = store_experiment(experiment)
