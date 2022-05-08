@@ -15,18 +15,18 @@ class User(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, unique_id: int=None, gender: Recording=None, age: Recording=None):  # noqa: E501
+    def __init__(self, id: str=None, unique_id: int=None, gender: Recording=None, age: Recording=None):  # noqa: E501
         """User - a model defined in Swagger
 
         :param id: The id of this User.  # noqa: E501
-        :type id: int
+        :type id: str
         :param gender: The gender of this User.  # noqa: E501
         :type gender: string
         :param age: The age of this User.  # noqa: E501
         :type age: string
         """
         self.swagger_types = {
-            'id': int,
+            'id': str,
             'unique_id': int,
             'gender': Recording,
             'age': Recording
@@ -56,22 +56,22 @@ class User(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def id(self) -> int:
+    def id(self) -> str:
         """Gets the id of this User.
 
 
         :return: The id of this User.
-        :rtype: int
+        :rtype: str
         """
         return self._id
 
     @id.setter
-    def id(self, id: int):
+    def id(self, id: str):
         """Sets the id of this User.
 
 
         :param id: The id of this User.
-        :type id: int
+        :type id: str
         """
         if id is None:
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
