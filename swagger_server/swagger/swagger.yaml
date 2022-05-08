@@ -222,6 +222,9 @@ definitions:
       userId:
         type: "integer"
         format: "int64"
+      exerciseId:
+        type: "integer"
+        format: "int64"
     example:
       timeToRecording: 6
       recording: "{}"

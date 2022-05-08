@@ -8,6 +8,6 @@ def store_recording(recording: Recording):
     """
     sql = "INSERT INTO Recording (TimeToRecording, Recording) VALUES (%s, %s)"
 
-    inserted_user = execute(sql, (recording.time_to_recording, recording.recording), "INSERT")
+    inserted_recording = execute(sql, (recording.time_to_recording, recording.recording), "INSERT")
     
-    return inserted_user
+    return inserted_recording

@@ -1,6 +1,7 @@
 import random
 from swagger_server.datalayer.db import execute
 from swagger_server.models.experiment import Experiment
+from swagger_server.models.recording import Recording
 
 def store_experiment(experiment: Experiment):
     """
@@ -28,6 +29,18 @@ def store_experiment_exercises(exercises, experiment: Experiment):
 
     return True
 
+def update_experiment_exercise(recording: Recording):
+    """
+    Updates the experiment exercise with the recording foreign key
+    """
+    # sql statement to update a row
+    sql = "UPDATE ExperimentExercise SET RecordingFK = %s WHERE ExperimentFK = %s AND ExerciseFK = %s"
+
+    # execute the UPDATE statement
+    execute(sql, (recording.id, recording.experiment_id, recording.exercise_id), "UPDATE")
+
+    return True
+
 def load_user_experiment(experiment_id: int, user_id: int):
     """
     Loads a specific experiment for a specific user
@@ -40,5 +53,17 @@ def load_user_experiment(experiment_id: int, user_id: int):
 
     if not result:
         return None
+
+    return result
+
+def load_experiment_exercise(experiment_id: int, exercise_id: int):
+    """
+    Loads a specific experiment exercise by experiment id and exercise id
+    """
+    # sql statement for the selection
+    sql = "SELECT * FROM ExperimentExercise WHERE ExperimentFK = %s AND ExerciseFK = %s"
+
+    # execute sql statement
+    result = execute(sql, (experiment_id, exercise_id), "SELECT")
 
     return result
