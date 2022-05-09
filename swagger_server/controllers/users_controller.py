@@ -22,6 +22,8 @@ def add_user(body):  # noqa: E501
     if connexion.request.is_json:
         body = User.from_dict(connexion.request.get_json())  # noqa: E501
 
+    print("test build pipeline")
+    
     if is_valid(body):
         result = user_service.add_user(body)
     else:
