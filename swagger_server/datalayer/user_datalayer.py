@@ -30,6 +30,6 @@ def get_user(user_id: int):
     # SELECT Statement for the selection of a User.
     sql = "SELECT PK, ID FROM User WHERE PK = %s"
 
-    user = execute(sql, (user_id), "SELECT")
+    user = execute(sql, (int(user_id)), "SELECT")
 
     return user
