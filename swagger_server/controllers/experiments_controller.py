@@ -19,6 +19,7 @@ def add_experiment(body):  # noqa: E501
 
     :rtype: None
     """
+    print(body)
     if connexion.request.is_json:
         body = Experiment.from_dict(connexion.request.get_json())  # noqa: E501
     
