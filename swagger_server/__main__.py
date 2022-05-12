@@ -32,7 +32,8 @@ def main():
     #app.app.config['API_VALUE'] = config['PROD']['API_VALUE']
     #app.app.config['NUMBER_OF_EXERCISES'] = config['PROD']['NUMBER_OF_EXERCISES']
     app.add_api('swagger.yaml', arguments={'title': 'NLP Experiment API'}, pythonic_params=True)
-    app.run(port=8080)
+    #app.run(port=8080)
+    app.run()
 
 
 if __name__ == '__main__':
